@@ -365,6 +365,7 @@ int conf_loadConfig ( const char* file )
       }
       conf_loadFloat("scalefactor",conf.scalefactor);
       conf_loadBool("fullscreen",conf.fullscreen);
+      conf_loadBool("modesetting",conf.modesetting);
 
       /* FPS */
       conf_loadBool("showfps",conf.fps_show);
@@ -937,6 +938,10 @@ int conf_saveConfig ( const char* file )
 
    conf_saveComment("Run "APPNAME" in full-screen mode");
    conf_saveBool("fullscreen",conf.fullscreen);
+   conf_saveEmptyLine();
+
+   conf_saveComment("Use video modesetting when fullscreen is enabled (SDL2-only)");
+   conf_saveBool("modesetting",conf.modesetting);
    conf_saveEmptyLine();
 
    /* FPS */
